@@ -1,0 +1,38 @@
+name: Hello Github Actions
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  hello-job:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout Código
+        uses: actions/checkout@v4
+
+      - name: Executar Hello World
+        run: echo "Hello World from GitHub Actions!"
+
+      - name: Mostrar informações do Sistema
+        run: |
+          echo "Sistema operacional:"
+          uname -a
+          echo ""
+          echo "Versão do Bash:"
+          bash --version
+
+      - name: Listar arquivos do repositório
+        run: |
+          echo "Arquivos no repositório:"
+          ls -la
+
+      - name: Comandos múltiplos
+        run: |
+          echo "Executando múltiplos comandos..."
+          pwd
+          date
+          echo "Workflow executado com sucesso!"
